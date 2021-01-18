@@ -1,0 +1,59 @@
+Update tag
+This endpoint for update tag information by owner
+---
+tags:
+  - tags
+definitions:
+  Tag:
+    type: object
+    properties:
+      title:
+        type: string
+        required: true
+        description: Get title
+        minimum: 1
+        maximum: 80
+      is_published:
+        type: boolean
+        readOnly: true
+        default: true
+        description: Get is_published
+      created_at:
+        type: string
+        readOnly: true
+        format: datetime
+        description: Get created_at
+      updated_at:
+        type: string
+        readOnly: true
+        format: datetime
+        description: Get update_at
+consumes:
+  - "application/json"
+  - "application/xml"
+  - "multipart/form-data"
+produces:
+  - "application/json"
+  - "application/xml"
+parameters:
+  - name: tag_id
+    in: path
+    type: integer
+    required: true
+    
+  - name: data
+    in: body
+    schema:
+      $ref: '#/definitions/Tag'
+
+responses:
+
+  200:
+    description: Update tag
+    schema:
+      $ref: '#/definitions/Tag'
+    examples:
+      $ref: '#/definitions/Tag'
+
+  400:
+    description: Bad Request 

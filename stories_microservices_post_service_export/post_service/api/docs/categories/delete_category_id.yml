@@ -1,0 +1,17 @@
+Delete a category
+This endpoint delete a category
+---
+tags:
+  - categories
+
+parameters:
+  - name: category_id
+    in: path
+    type: integer
+    required: true
+
+responses:
+  204:
+    description: Delete successfully
+  404:
+    description: Not found 

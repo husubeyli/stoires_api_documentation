@@ -1,0 +1,68 @@
+Get all stories
+This endpoint all stories information for list recipe in recipes.html
+
+---
+tags:
+  - stories
+
+definitions:
+  Recipe:
+    type: object
+    properties:
+      category_id:
+        type: integer
+        description: Get Category Id
+        default: 1
+      owner_id:
+        type: integer
+        description: Get Owner Id
+        default: 1
+      tags:
+        type: array
+        description: Get Tags Id
+        items:
+          type: integer
+      slug:
+        type: string
+        description: Get Slug
+        minimum: 1
+        maximum: 120
+      title:
+        type: string
+        description: Get title
+        minimum: 1
+        maximum: 80
+      description:
+        type: string
+        description: Get description
+      image:
+        type: string
+        description: Get Image
+        format: byte
+      is_published:
+        type: boolean
+        default: true
+        description: Get is_published
+      created_at:
+        type: string
+        format: datetime
+        description: Get created_at
+      updated_at:
+        type: string
+        format: datetime
+        description: Get update_at
+
+responses:
+  200:
+    description: A list of story
+    schema:
+      $ref: '#/definitions/Story'
+    examples:
+      $ref: '#/definitions/Story'
+    parameters:
+      - name: data
+        in: body
+
+
+  404:
+    description: Not found 

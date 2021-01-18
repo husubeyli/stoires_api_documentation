@@ -1,0 +1,17 @@
+Delete a recipe
+Use this endpoint to delete a recipe
+--- 
+tags: 
+  - recipes
+parameters:
+  - name: recipe_id
+    in: path
+    required: true
+
+responses:
+  204:
+    description: Deleted successfully
+  404:
+    description: Not found
+
+

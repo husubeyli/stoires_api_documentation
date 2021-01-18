@@ -1,0 +1,15 @@
+Delete a tag
+This endpoint delete a tag
+---
+tags:
+  - tags
+parameters:
+  - name: tag_id
+    in: path
+    type: integer
+    required: true
+responses:
+  204:
+    description: Delete successfully
+  404:
+    description: Not found 

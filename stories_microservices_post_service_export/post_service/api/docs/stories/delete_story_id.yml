@@ -1,0 +1,19 @@
+Delete a story
+This endpoint delete a story
+---
+tags:
+  - stories
+
+
+parameters:
+  - name: story_id
+    in: path
+    type: integer
+    required: true
+
+
+responses:
+  204:
+    description: Delete successfully
+  404:
+    description: Not found 

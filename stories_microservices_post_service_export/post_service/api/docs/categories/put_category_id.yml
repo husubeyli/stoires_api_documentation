@@ -1,0 +1,65 @@
+Udpdate category
+This endpoint for update category information by owner
+---
+tags:
+  - categories
+definitions:
+  Category:
+    type: object
+    properties:
+      title:
+        type: string
+        required: true
+        description: Get title
+        minimum: 1
+        maximum: 80
+      image:
+        type: string
+        required: true
+        description: Get Image
+        format: byte
+      is_published:
+        type: boolean
+        readOnly: true
+        default: true
+        description: Get is_published
+      created_at:
+        type: string
+        readOnly: true
+        format: datetime
+        description: Get created_at
+      updated_at:
+        type: string
+        readOnly: true
+        format: datetime
+        description: Get update_at
+consumes:
+  - "application/json"
+  - "application/xml"
+  - "multipart/form-data"
+produces:
+  - "application/json"
+  - "application/xml"
+parameters:
+  - name: category_id
+    in: path
+    type: integer
+    required: true
+    
+  - name: data
+    in: body
+    type: integer
+    schema:
+      $ref: '#/definitions/Category'
+
+responses:
+
+  202:
+    description: Category updated successfully
+    schema:
+      $ref: '#/definitions/Category'
+    examples:
+      $ref: '#/definitions/Category'
+
+  400:
+    description: Bad Request 
